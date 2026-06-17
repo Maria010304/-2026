@@ -1,0 +1,182 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border-subtle);
+  height: var(--header-height);
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  text-decoration: none;
+}
+
+.header__logo:hover { text-decoration: none; }
+
+.header__logo-mark {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* Поиск */
+.header__search {
+  flex: 1;
+  max-width: 560px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header__search-input {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-3) var(--space-12) var(--space-3) var(--space-4);
+  background-color: var(--bg-input);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.header__search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.header__search-input:focus {
+  border-color: var(--color-accent);
+}
+
+.header__search-mode {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-1) var(--space-2);
+  background: transparent;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.header__search-mode:hover { background: var(--bg-hover); }
+
+.header__search-modes {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  right: 0;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-1);
+  min-width: 140px;
+  z-index: var(--z-dropdown);
+}
+
+.header__search-mode-item {
+  display: block;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.header__search-mode-item:hover { background: var(--bg-hover); }
+.header__search-mode-item.is-active {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-input);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__avatar-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success);
+  transition: background-color var(--transition-base);
+}
+
+/* Модификаторы цвета должны идти ПОСЛЕ базового правила,
+   иначе у них одинаковая специфичность и базовое (зелёное) затирает их. */
+.header__avatar-dot--processing {
+  background-color: var(--color-warning);
+  animation: dot-pulse 1.6s ease-in-out infinite;
+}
+
+.header__avatar-dot--error {
+  background-color: var(--color-error);
+  animation: dot-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Адаптивная мобильная вёрстка */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+    height: 60px;
+  }
+
+  .header__logo-text { display: none; }
+
+  .header__search { max-width: none; margin: 0; }
+
+  .header__search-input {
+    padding: var(--space-2) var(--space-10) var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+
+  .header__right .btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+}

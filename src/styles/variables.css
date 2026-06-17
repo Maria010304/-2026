@@ -1,0 +1,145 @@
+/* ===========================================================
+   Дизайн-токены Ifbest Enterprise
+   Все цвета, отступы, типографика, тени — здесь.
+   Базовая единица отступа = 5px (из главы 2.3 диплома).
+   =========================================================== */
+
+:root {
+  /* Брендовый акцент — общий для обеих тем */
+  --color-accent: #E63946;
+  --color-accent-hover: #D1303D;
+  --color-accent-active: #B82632;
+  --color-accent-disabled: rgba(230, 57, 70, 0.45);
+
+  /* Системные цвета */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Цвета индикаторов карты решений */
+  --color-marker-red: #EF4444;
+  --color-marker-green: #22C55E;
+  --color-marker-blue: #3B82F6;
+  --color-marker-yellow: #FACC15;
+
+  /* Типографика — Roboto (зафиксировано в главе 2.3) */
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Типографическая шкала */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+
+  /* Отступы (базовая единица = 5px) */
+  --space-1: 5px;
+  --space-2: 10px;
+  --space-3: 15px;
+  --space-4: 20px;
+  --space-5: 25px;
+  --space-6: 30px;
+  --space-8: 40px;
+  --space-10: 50px;
+  --space-12: 60px;
+
+  /* Радиусы */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Размеры */
+  --header-height: 80px;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 60px;
+  --max-content-width: 1320px;
+
+  /* Анимации */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 350ms ease;
+
+  /* z-index */
+  --z-sidebar: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* ===========================================================
+   Тёмная тема — основная (главы 2.3 и 2.6 диплома)
+   =========================================================== */
+
+[data-theme='dark'] {
+  --bg-page: #1A1A1A;
+  --bg-surface: #2A2A2A;
+  --bg-surface-elevated: #353535;
+  --bg-input: #404040;
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --text-muted: #707070;
+  --text-inverse: #1A1A1A;
+  --text-link: #60A5FA;
+
+  --border-default: #404040;
+  --border-strong: #555555;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --skeleton-base: #2A2A2A;
+  --skeleton-shimmer: #3A3A3A;
+
+  --accent-gradient: linear-gradient(135deg, #E63946 0%, #B82632 100%);
+}
+
+/* ===========================================================
+   Светлая тема (главы 2.3 и 2.6 диплома)
+   =========================================================== */
+
+[data-theme='light'] {
+  --bg-page: #FFFFFF;
+  --bg-surface: #F5F5F5;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-input: #EEEEEE;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  --text-primary: #1A1A1A;
+  --text-secondary: #555555;
+  --text-muted: #8A8A8A;
+  --text-inverse: #FFFFFF;
+  --text-link: #2563EB;
+
+  --border-default: #E0E0E0;
+  --border-strong: #C8C8C8;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  --skeleton-base: #E5E5E5;
+  --skeleton-shimmer: #F0F0F0;
+
+  --accent-gradient: linear-gradient(135deg, #E63946 0%, #B82632 100%);
+}

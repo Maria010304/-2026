@@ -1,0 +1,67 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-5) 0;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination__page {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pagination__page:hover:not(.is-active) {
+  background: var(--bg-surface-elevated);
+}
+
+.pagination__page.is-active {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-bold);
+}
+
+.pagination__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.pagination__arrow:hover:not(:disabled) {
+  background: var(--bg-surface-elevated);
+}
+
+.pagination__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

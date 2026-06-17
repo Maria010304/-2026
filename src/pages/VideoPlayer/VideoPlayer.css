@@ -1,0 +1,145 @@
+.player {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  grid-template-areas:
+    'main transcript'
+    'info transcript';
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.player__main {
+  grid-area: main;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #C7C7C7;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.player__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+}
+
+.player__transcript {
+  grid-area: transcript;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  max-height: calc(100vh - var(--header-height) - var(--space-12));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.transcript {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.transcript::-webkit-scrollbar { width: 6px; }
+.transcript::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+.transcript__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast);
+  border-radius: var(--radius-md);
+}
+
+.transcript__item:hover { background: var(--bg-hover); }
+
+.transcript__item--active {
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+}
+
+.transcript__item--active:hover { background: var(--color-accent); }
+
+.transcript__time {
+  flex-shrink: 0;
+  font-weight: var(--font-weight-bold);
+  min-width: 38px;
+}
+
+.transcript__text {
+  flex: 1;
+}
+
+.player__info {
+  grid-area: info;
+  padding: var(--space-2) 0;
+}
+
+.player__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-2);
+  line-height: var(--line-height-tight);
+}
+
+.player__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.player__sep { font-size: var(--font-size-xs); }
+
+.player__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.player__tag {
+  padding: 6px 14px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-full);
+}
+
+.player__actions {
+  margin-top: var(--space-4);
+}
+
+.player__not-found {
+  text-align: center;
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* Мобильная компоновка из макета "Видеоплеер S black": плеер сверху, транскрипт снизу */
+@media (max-width: 900px) {
+  .player {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'main'
+      'info'
+      'transcript';
+  }
+  .player__transcript {
+    max-height: 400px;
+  }
+}
